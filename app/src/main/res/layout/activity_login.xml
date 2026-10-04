@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".LoginActivity">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Masuk"
+            app:titleTextColor="#212121"
+            app:navigationIcon="@drawable/ic_arrow_back_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Form Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Logo Aplikasi -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bersih."
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Teks Salam -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Senang kamu kembali!"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Input Nomor Ponsel -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nomor Ponsel"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:startIconDrawable="@android:drawable/ic_menu_call"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Input Kata Sandi -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Kata Sandi"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:startIconDrawable="@android:drawable/ic_lock_lock"
+                app:endIconMode="password_toggle"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Remember me & Forgot Password -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <CheckBox
+                    android:id="@+id/cbRememberMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ingat saya"
+                    android:textColor="#757575"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lupa kata sandi?"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp" />
+
+            </RelativeLayout>
+
+            <!-- Tombol Utama Masuk -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Masuk"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:backgroundTint="#2196F3"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Tombol Masuk dengan Google -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoogleLogin"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Masuk dengan Google"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                app:strokeColor="#2196F3"
+                app:strokeWidth="2dp"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Tautan Belum Punya Akun -->
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum punya akun? Daftar sekarang"
+                android:textColor="#757575"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

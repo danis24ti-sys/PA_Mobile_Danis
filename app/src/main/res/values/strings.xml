@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ProjekLaundry_Danis</string>
+    <string name="logo_text">bersih.</string>
+    <string name="illustration_desc">Ilustrasi Mesin Cuci</string>
+    <string name="welcome_title">Baju bersih. Hari lebih ringan.</string>
+    <string name="welcome_description">Nikmati layanan cuci pakaian profesional dengan hasil bersih, wangi, dan rapi tanpa repot.</string>
+    <string name="btn_start">Mulai sekarang</string>
+    <string name="btn_website">Kunjungi Website Layanan</string>
+</resources>
