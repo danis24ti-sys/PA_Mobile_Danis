@@ -45,5 +45,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Tidak dapat membuka browser", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Tombol Profil Developer -> Berpindah ke DeveloperActivity
+        binding.btnDeveloper.setOnClickListener {
+            val intent = Intent(this, DeveloperActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -94,6 +94,24 @@
         app:strokeColor="#2196F3"
         app:strokeWidth="2dp"
         app:cornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="@id/btnDeveloper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Tombol Profil Developer -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeveloper"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Profil Developer"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#2196F3"
+        app:strokeColor="#2196F3"
+        app:strokeWidth="2dp"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

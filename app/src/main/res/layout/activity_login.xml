@@ -1,176 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
+    android:fillViewport="true"
+    android:background="#FAF8F5"
     tools:context=".LoginActivity">
 
-    <!-- Toolbar -->
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:elevation="0dp">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="32dp">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Masuk"
-            app:titleTextColor="#212121"
-            app:navigationIcon="@drawable/ic_arrow_back_24" />
+        <!-- Logo Bundar (Circular Logo) -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            app:cardCornerRadius="48dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_washing_machine"
+                android:scaleType="centerInside"
+                android:padding="16dp"
+                android:background="#E3F2FD"
+                android:contentDescription="Logo Bersih" />
 
-    <!-- Scrollable Form Content -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
+        <!-- Judul Aplikasi -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bersih Laundry"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Subjudul -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin Login"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:gravity="center"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Instruksi -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Silahkan login untuk melanjutkan"
+            android:textSize="13sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Username Field dengan Icon User -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:hint="Username"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:startIconDrawable="@drawable/ic_user_24"
+            android:layout_marginBottom="16dp">
 
-            <!-- Logo Aplikasi -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bersih."
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:letterSpacing="0.05"
-                android:layout_marginBottom="16dp" />
-
-            <!-- Teks Salam -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Senang kamu kembali!"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#212121"
-                android:layout_marginBottom="24dp" />
-
-            <!-- Input Nomor Ponsel -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nomor Ponsel"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:startIconDrawable="@android:drawable/ic_menu_call"
-                android:layout_marginBottom="16dp">
+                android:inputType="text"
+                android:maxLines="1" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <!-- Password Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:startIconDrawable="@android:drawable/ic_lock_lock"
+            app:endIconMode="password_toggle"
+            android:layout_marginBottom="24dp">
 
-            <!-- Input Kata Sandi -->
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Kata Sandi"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                app:boxCornerRadiusTopStart="12dp"
-                app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                app:startIconDrawable="@android:drawable/ic_lock_lock"
-                app:endIconMode="password_toggle"
-                android:layout_marginBottom="12dp">
+                android:inputType="textPassword"
+                android:maxLines="1" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <!-- Tombol Login (Warna Gelap) -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Login"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="#212121"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="16dp" />
 
-            <!-- Remember me & Forgot Password -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp">
+        <!-- Tautan Register -->
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun? Daftar sekarang"
+            android:textColor="#2196F3"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:gravity="center" />
 
-                <CheckBox
-                    android:id="@+id/cbRememberMe"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ingat saya"
-                    android:textColor="#757575"
-                    android:layout_centerVertical="true" />
+    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvForgotPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lupa kata sandi?"
-                    android:textColor="#2196F3"
-                    android:textStyle="bold"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:padding="8dp" />
-
-            </RelativeLayout>
-
-            <!-- Tombol Utama Masuk -->
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Masuk"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:backgroundTint="#2196F3"
-                app:cornerRadius="12dp"
-                android:layout_marginBottom="12dp" />
-
-            <!-- Tombol Masuk dengan Google -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGoogleLogin"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Masuk dengan Google"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                app:strokeColor="#2196F3"
-                app:strokeWidth="2dp"
-                app:cornerRadius="12dp"
-                android:layout_marginBottom="24dp" />
-
-            <!-- Tautan Belum Punya Akun -->
-            <TextView
-                android:id="@+id/tvRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Belum punya akun? Daftar sekarang"
-                android:textColor="#757575"
-                android:layout_gravity="center_horizontal"
-                android:padding="8dp"
-                android:gravity="center" />
-
-        </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>

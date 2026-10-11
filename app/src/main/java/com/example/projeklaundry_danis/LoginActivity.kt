@@ -17,49 +17,40 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Inisialisasi View Binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Handle edge-to-edge window insets
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Setup Toolbar & Back Navigation
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        binding.toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
-        }
-
-        // Aksi Tombol Masuk
+        // Aksi Tombol Login dengan validasi Username/Password & SharedPreferences
         binding.btnLogin.setOnClickListener {
             val phone = binding.etPhone.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
+            // Validasi Input (Username & Password Check)
             if (phone.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Nomor ponsel dan kata sandi harus diisi", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Username dan password harus diisi", Toast.LENGTH_SHORT).show()
+            } else if (password.length < 6) {
+                Toast.makeText(this, "Password minimal 6 karakter", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Berhasil masuk!", Toast.LENGTH_SHORT).show()
-                // TODO: Lanjutkan ke Dashboard / Home Activity
+                // Autentikasi Berhasil: Simpan status login ke SharedPreferences
+                val sharedPreferences = getSharedPreferences("LaundryPrefs", MODE_PRIVATE)
+                sharedPreferences.edit().putBoolean("isLogin", true).apply()
+
+                Toast.makeText(this, "Berhasil login!", Toast.LENGTH_SHORT).show()
+
+                // Navigasi ke MainActivity dan hapus history stack login
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
             }
         }
 
-        // Aksi Tombol Masuk dengan Google
-        binding.btnGoogleLogin.setOnClickListener {
-            Toast.makeText(this, "Fitur Masuk dengan Google belum tersedia", Toast.LENGTH_SHORT).show()
-        }
-
-        // Aksi Lupa Kata Sandi
-        binding.tvForgotPassword.setOnClickListener {
-            Toast.makeText(this, "Fitur reset kata sandi", Toast.LENGTH_SHORT).show()
-        }
-
-        // Aksi Tautan Daftar Sekarang -> Menuju RegisterActivity
         binding.tvRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
