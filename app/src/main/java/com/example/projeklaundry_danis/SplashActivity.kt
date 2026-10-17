@@ -26,8 +26,8 @@ class SplashActivity : AppCompatActivity() {
         // Tunda selama 1.5 detik (1500 ms) sebelum navigasi
         Handler(Looper.getMainLooper()).postDelayed({
             if (isLogin) {
-                // Jika sudah login, langsung ke MainActivity
-                val intent = Intent(this, MainActivity::class.java)
+                // Jika sudah login, langsung ke HomeActivity
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             } else {
                 // Jika belum login, ke LoginActivity

@@ -43,8 +43,8 @@ class LoginActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Berhasil login!", Toast.LENGTH_SHORT).show()
 
-                // Navigasi ke MainActivity dan hapus history stack login
-                val intent = Intent(this, MainActivity::class.java)
+                // Navigasi ke HomeActivity dan hapus history stack login
+                val intent = Intent(this, HomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
