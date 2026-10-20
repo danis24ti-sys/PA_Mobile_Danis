@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jl. Melati No. 12, Malang 📍"
+                    android:text="Jl. Puncak Sari No. 12, Rumbai 📍"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColor="#212121" />

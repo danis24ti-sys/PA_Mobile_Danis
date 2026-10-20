@@ -1,5 +1,6 @@
 package com.example.projeklaundry_danis
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -39,16 +40,24 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             val fullName = binding.etFullName.text.toString().trim()
             val phone = binding.etPhone.text.toString().trim()
+            val username = binding.etUsername.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
-            if (fullName.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            if (fullName.isEmpty() || phone.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Semua kolom harus diisi", Toast.LENGTH_SHORT).show()
             } else if (!binding.cbTerms.isChecked) {
                 Toast.makeText(this, "Anda harus menyetujui Syarat & Ketentuan", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Akun berhasil dibuat!", Toast.LENGTH_SHORT).show()
-                finish() // Kembali ke halaman Login
+                // Kirim semua data dari 5 inputan (Nama, No. HP, Username, Email, Password) ke OtpActivity
+                val intent = Intent(this, OtpActivity::class.java).apply {
+                    putExtra("EXTRA_FULL_NAME", fullName)
+                    putExtra("EXTRA_PHONE", phone)
+                    putExtra("EXTRA_USERNAME", username)
+                    putExtra("EXTRA_EMAIL", email)
+                    putExtra("EXTRA_PASSWORD", password)
+                }
+                startActivity(intent)
             }
         }
 

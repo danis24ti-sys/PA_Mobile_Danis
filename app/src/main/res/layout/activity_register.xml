@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kenalan dulu, yuk."
+                android:text="isi datanya ya bosku."
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="#212121"
@@ -57,7 +57,7 @@
                 android:textColor="#757575"
                 android:layout_marginBottom="24dp" />
 
-            <!-- Input Nama Lengkap -->
+            <!-- 1. Input Nama Lengkap -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,11 +79,11 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Input Nomor Ponsel -->
+            <!-- 2. Input Nomor Handphone -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nomor ponsel"
+                android:hint="Nomor handphone"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -101,7 +101,29 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Input Email -->
+            <!-- 3. Input Username -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:startIconDrawable="@drawable/ic_user_24"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- 4. Input Email -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,7 +145,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Input Kata Sandi -->
+            <!-- 5. Input Kata Sandi -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
