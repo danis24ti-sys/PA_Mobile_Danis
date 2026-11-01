@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="app_primary">#2196F3</color>
+    <color name="app_on_primary">#FFFFFFFF</color>
+    <color name="app_primary_container">#E3F2FD</color>
+    <color name="app_on_primary_container">#0D47A1</color>
+    <color name="app_secondary_container">#E3F2FD</color>
+    <color name="app_on_secondary_container">#0D47A1</color>
+    <color name="app_surface">#FFFAF8F5</color>
+    <color name="app_on_surface">#FF212121</color>
+    <color name="app_surface_variant">#FFF1F0EE</color>
+    <color name="app_on_surface_variant">#FF757575</color>
+    <color name="app_outline_variant">#FFE0E0E0</color>
+    <color name="app_card_surface">#FFFFFFFF</color>
+    <color name="splash_background">#2196F3</color>
+</resources>

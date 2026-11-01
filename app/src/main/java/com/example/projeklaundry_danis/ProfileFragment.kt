@@ -1,0 +1,68 @@
+package com.example.projeklaundry_danis
+
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
+import com.example.projeklaundry_danis.databinding.FragmentProfileBinding
+
+class ProfileFragment : Fragment() {
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val userPreferences = requireActivity().getSharedPreferences("UserPref", Context.MODE_PRIVATE)
+        binding.switchDarkMode.isChecked = userPreferences.getBoolean("dark_mode", false)
+        binding.switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+            userPreferences.edit().putBoolean("dark_mode", isChecked).apply()
+            AppCompatDelegate.setDefaultNightMode(
+                if (isChecked) AppCompatDelegate.MODE_NIGHT_YES
+                else AppCompatDelegate.MODE_NIGHT_NO
+            )
+        }
+
+        binding.tvDevProfileMenu.setOnClickListener {
+            val intent = Intent(requireContext(), DeveloperActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Konfirmasi Logout")
+                .setMessage("Apakah Anda yakin ingin logout?")
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setPositiveButton("Ya") { _, _ ->
+                    val sharedPreferences = requireActivity().getSharedPreferences("LaundryPrefs", Context.MODE_PRIVATE)
+                    sharedPreferences.edit().putBoolean("isLogin", false).apply()
+
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    requireActivity().finish()
+                }
+                .show()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
